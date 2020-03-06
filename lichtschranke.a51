@@ -11,8 +11,8 @@ start:
 	jnb band,$ ;aAbfrage: Band läuft?
 	jb lichtschranke,$ ;Abfrage Lichtschranke unterbrochen?
 	setb tr0
-	jnb lichtschranke,$ ;Abfrage Lichtschranke nicht mehr unterbrochen?
-	jb lichtschranke,$ ;Abfrage Lichtschranke unterbrochen
+	jnb lichtschranke,$ ;Abfrage Lichtschranke unterbrochen?
+	jb lichtschranke,$ ;Abfrage Lichtschranke wieder frei?
 	clr tr0
 	call anzeige
 	mov tl0,#0
