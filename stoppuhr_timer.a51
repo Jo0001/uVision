@@ -1,7 +1,7 @@
 ;Stoppuhr mit Timer
-tstart equ P0.0
-tstopp equ P0.1
-treset equ P0.2
+tstart equ P1.0
+tstopp equ P1.1
+treset equ P1.2
 counter equ 30h
 
 init:
@@ -17,6 +17,7 @@ ziel0:
 	jnb tf0,$
 	clr tf0
 	jnb tstopp,ziel1
+	jnb treset,init
 	djnz counter,ziel0
 	mov counter,#40
 ziel1:
@@ -25,4 +26,5 @@ ziel1:
 
 anzeige:
 	ret
+	
 END
