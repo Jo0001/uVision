@@ -17,14 +17,23 @@ ziel0:
 	jnb tf0,$
 	clr tf0
 	jnb tstopp,ziel1
-	jnb treset,init
+	jnb treset,reset
 	djnz counter,ziel0
 	mov counter,#40
 ziel1:
+	clr tr0
 	call anzeige
 	jmp start
 
 anzeige:
 	ret
+	
+reset:
+	clr tr0
+	mov th0,#6;da immer auf 250 gezählt werden soll
+	mov tl0,#6
+	mov counter,#40
+	call anzeige
+	jmp start
 	
 END
