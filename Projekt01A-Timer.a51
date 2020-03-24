@@ -24,42 +24,41 @@ init:
 	setb tr0
 	
 start:
+	call anzeige
+	
 	jnb tf0,$
 	clr tf0
 		
 	inc z0
 	;check z0
 	mov a,z0
-	cjne a,#40,weiter
+	cjne a,#40,start
 	mov z0,#0
 	
 	inc z1
 	;check z1
 	mov a,z1
-	cjne a,#1000,weiter
+	cjne a,#1000,start
 	mov z1,#0
 	
 	inc sek
 	;check sek
 	mov a,sek
-	cjne a,#60,weiter
+	cjne a,#60,start
 	mov sek,#0
 	
 	inc min
 	;check min
 	mov a,min
-	cjne a,#60,weiter
+	cjne a,#60,start
 	mov min,#0
 	
 	inc st
 	;cehck st
 	mov a,st
-	cjne a,#23,weiter
+	cjne a,#23,start
 	mov st,#0
 	
-weiter:
-
-	call anzeige
 	jmp start
 
 anzeige:
@@ -68,7 +67,5 @@ anzeige:
 	mov ICM,st
 	setb digit2
 	ret
-	
-	
 	
 end
